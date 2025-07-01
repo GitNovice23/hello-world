@@ -1,0 +1,121 @@
+/* universal css selector */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    background-image: linear-gradient(rgb(255, 136, 0), orange);
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+h1 {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 70px;
+    z-index: 1;
+}
+
+ul li {
+    position: absolute;
+    list-style: none;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #fff;
+    opacity: 0;
+    background: #fff;
+}
+
+.square  li{
+    top: 50vh;
+    left: 45vw;
+    animation : square 6s linear infinite;
+}
+
+.square li:nth-child(2){
+    top: 80vh;
+    left: 10vw;
+    animation-delay: 1s;
+}
+
+.square li:nth-child(3){
+    top: 80vh;
+    animation-delay: 2s;
+    left: 85vw;
+}
+
+.square li:nth-child(4){
+    top: 10vh;
+    animation-delay: 3s;
+    left: 70vw;
+}
+
+.square li:nth-child(5){
+    top: 10vh;
+    left: 10vw;
+    animation-delay: 4s;
+
+}
+
+@keyframes square {
+    0% {
+        transform: scale(0) rotateY(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4) rotateY(1000deg);
+        opacity: 0;
+    }
+}
+
+.circle li{
+    opacity: 0;
+    bottom: 0vh;
+    left: 10vw;
+    animation: circle 6s linear  2s infinite;
+}
+ 
+.circle li:nth-child(2){
+    left: 30vw;
+    animation-delay: 1s;
+}
+
+.circle li:nth-child(3){
+    left: 50vw;
+    animation-delay: 0s;
+}
+
+.circle li:nth-child(4){
+    left: 70vw;
+    animation-delay: 1s;
+
+}
+
+.circle li:nth-child(5){
+    left: 90vw;
+    animation-delay: 2s;
+
+}
+
+
+
+
+@keyframes circle {
+    0%{
+        transform: scale(0) rotateX(0deg);
+        opacity: 1;
+        bottom: 0vh;
+    }
+    100%{
+        transform: scale(4) rotateZ(1000deg);
+        border-radius: 50%;
+        opacity: 0;
+        bottom: 90vh;
+    }
+}
