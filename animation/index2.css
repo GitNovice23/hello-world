@@ -36,6 +36,11 @@ ul li {
     top: 50vh;
     left: 45vw;
     animation : square 6s linear infinite;
+/*     or
+    animation-name: square;
+    animation-duration: 6s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;*/
 }
 
 .square li:nth-child(2){
