@@ -1,0 +1,388 @@
+/* General setting */
+
+* {
+    color: #fff;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: rgba(99,97,118,255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: rgba(44,38,56,255);
+    width: 80%;
+    height: 85vh;
+    margin-top: 60px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container .first {
+    width: 50%;
+    height: 95%;
+}
+
+/* left side */
+.container-img {
+    background-image: url(../../../Downloads/wp6981125-240107831.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.nav {
+    width: 100%;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav>p {
+    font-size: 3rem;
+    margin: 30px;
+}
+
+
+.nav .box {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    margin: 30px;
+    width: 350px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    outline: none;
+    border: none;
+    padding: 2px;
+}
+
+.box p {
+    font-size: 2.5rem;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    margin-bottom:20px;
+    
+}
+
+.text h2 {
+    font-size: 4rem;
+}
+.footer{
+    display:flex;
+    width: 300px;
+    height:40px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+}
+.dash{
+ height: 8px;
+ width:40px;
+ background-color: rgb(170, 170, 170);
+ border-radius:23px;
+}
+.das{
+ height: 8px;
+ width:50px;
+ background-color: white;
+ border-radius:23px;
+}
+
+
+/* right side */
+.container-form {
+    /* background-color: red; */
+    margin-right: 0.5rem;   
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.container-form .form {
+    height: 60%;
+    width: 90%;
+    /* background-color: yellow; */
+    padding: min(10em, 10%);
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.form .head, .form .body{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form .head {
+    margin-bottom: 80px;
+}
+
+.head span {
+    font-size: 8rem;
+}
+
+.head p{
+    font-size: 2.5rem;
+    margin-left: 20px;
+}
+
+a {
+    color: rgb(96, 80, 206);
+}
+
+
+#input {
+    height: 100px;
+    font-size: 40px;
+    outline: none;
+    border: none;
+    padding: 25px 40px;
+    border-radius: 20px;
+    background-color: rgba(51, 50, 51, 0.726);
+}
+
+#input:hover {
+    border: 2px solid rgb(96, 80, 206);
+}
+
+.part1 #input {
+    width: 55%;
+}
+
+.body .part1 {
+    display: flex;
+    justify-content: space-between;
+    gap: 2%;
+    /* background-color: blue; */
+    width: 95%;
+    margin-bottom: 1%;
+}
+
+.part2 {
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+    width: 90%;
+}
+.part2 #input {
+    width: 100%;
+}
+
+.check {
+    /* background-color: blueviolet; */
+    display: flex;
+    gap: 4%;
+    width: 50%;
+}
+
+.check input {
+    width: 5%;
+}
+
+.check   p{
+    font-size: 2.5rem;
+}
+
+.btn {
+    height: 100px;
+    width: 94%;
+    text-align: center;
+    background-color: rgb(96, 80, 206);
+    font-weight: bold;
+    padding: 0px 50px;
+    border-radius: 20px;
+    border: none;
+    font-size: 3rem;
+    
+}
+
+.div3 {
+    display: flex;
+    gap: 2%;
+    width: 100%;
+    height: 50px;
+    margin-top: 70px;
+}
+
+.div3 div {
+    width: 37%;
+    height: 1px;
+    background-color: grey;
+    margin-top: 20px;
+
+}
+
+.div3 span, .div4 span {
+    font-size: 2.25rem;
+} 
+
+.div4 {
+    display: flex;
+    
+    gap: 2%;
+    /* background-color: blue; */
+    width: 95%;
+    margin-top: 3%;
+    margin-left: 0;
+}
+
+.div4 div {
+    width: 48%;
+    height: 100px;
+    border: 2px solid grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4%;
+
+}
+
+/* Responsive */
+
+@media screen and (max-width: 800px){
+
+    .container {
+        width: 90%;
+        height: 90%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .container-img {
+        display: none;
+    }
+    .container .first {
+        width: 95%;
+        height: 50%;
+    }
+
+    /* left side  */
+    .text h2 {
+        font-size: 2.5rem;
+    }
+
+    .nav p {
+        font-size: 2rem;
+    }
+
+    .box p {
+        font-size: 1.75rem;
+        width: 200px;
+    }
+    /* right side */
+
+    .container-form .form {
+
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        /* background-color: blue; */
+        padding: 0;
+        
+    }
+
+    .form .head {
+        /* background-color: red; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .head span {
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    .head p {
+        font-size: 1.75rem;
+    }
+
+    .form .body {
+        /* background-color: #fff; */
+        gap: 0;
+    }
+
+    .part1 {
+        display: flex;
+        flex-direction: column;
+        /* background-color: black; */
+       
+    }
+
+    .part1 #input {
+        width: 90%;
+        margin: 2%;
+    }
+
+    .body #input {
+        height: 30%;
+    }
+
+    .part2 {
+        /* background-color: blueviolet; */
+        width: 100%;
+        padding: 2%;
+        padding-top: 0;
+    }
+
+    .part2 #input {
+        width: 85%;
+    }
+
+    .check {
+        /* background-color: brown; */
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn {
+        width: 95%;
+        /* height: 30%; */
+        margin-left: 2.5%;
+    }
+
+    .div3 {
+        padding-left: 4%;
+    }
+    .div3  span{
+        font-size: 2rem;
+    }
+    .div3 div {
+        width: 30%;
+        height: 5px;
+        background-color: grey;
+        margin-top: 20px;
+        justify-content: center;
+
+    }
+
+    .div4 {
+        justify-content: center;
+        padding: 4%;
+    }
+
+}

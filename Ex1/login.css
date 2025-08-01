@@ -1,0 +1,292 @@
+/* General setting */
+*{
+    color: #fff;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: rgba(99,97,118,255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    position: absolute;
+    top: 3.5rem;
+    border-radius: 8px;
+    background-color:rgba(44,38,56,255);
+    width: 70%;
+    height: 85vh;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.container .first {
+    width: 50%;
+    height: 95%;
+}
+
+/* left-side */
+.container-img {
+    background-image: url(../../../Downloads/wp6981125-240107831.jpg);
+    margin-left: 1.5%;
+    width: 100%;
+    border-radius: 10px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.nav>p {
+    font-size: 1.5rem;
+    margin-top: 2px;
+    
+}
+
+.nav .box {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    margin-top: 8px;
+    width: 165px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    outline: none;
+    border: none;
+    padding: 2px;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    margin-bottom:20px;
+    
+}
+.footer{
+    display:flex;
+    width: 100px;
+    height:20px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+}
+.dash{
+ height: 4px;
+ width:25px;
+ background-color: rgb(170, 170, 170);
+ border-radius:23px;
+}
+.das{
+ height: 4px;
+ width:35px;
+ background-color: white;
+ border-radius:23px;
+}
+/* right side */
+
+.container-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5rem;
+    border-radius: 10px ;
+    margin: 10px;
+    /* background-color: red; */
+}
+
+.head span {
+    font-size: 3em;
+    text-transform: capitalize;
+}
+
+a {
+    color: rgb(96, 80, 206);
+}
+
+.container-form .head {
+    position: absolute;
+    top: 0;
+}
+
+.body {
+    background-color: bluex;
+    margin-top: 45px;
+
+}
+
+.head h1{
+    font-size: 3.25rem;
+    margin-left: 0;
+}
+
+#input {
+    height: 45px;
+    outline: none;
+    border: none;
+    padding: 0px 10px;
+    border-radius: 5px;
+    background-color: rgba(51, 50, 51, 0.726);
+    /* transition: border 2s linear; */
+}
+
+#input:hover{
+    border: 1px solid rgb(96, 80, 206);
+}
+
+.btn {
+    height: 45px;
+    width: 78%;
+    text-align: center;
+    background-color: rgb(96, 80, 206);
+    font-weight: bold;
+    padding: 0px 50px;
+    border-radius: 5px;
+    border: none;
+    font-size: larger;
+}
+
+.part1 {
+    display: flex;
+    gap: 10px;
+    padding-bottom: 10px;
+} 
+
+.part1 #input {
+    width: 35%;
+}
+
+.part2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.part2 #input {
+    width: 75%;
+
+}
+
+input[type="email"]{
+    margin-top: 10px;
+}
+
+.check {
+    display: flex;
+    gap: 10px;
+}
+
+.div3 {
+    display: flex;
+    gap: 7px;
+
+}
+
+.div3 div{
+    width: 28%;
+    height: 0px;
+    border: 2px solid grey;
+    margin-top: 10px;
+
+}
+
+.div4 {
+    display: flex;
+    gap: 20px;
+} 
+
+
+.div4 div {
+    width: 37%;
+    height: 45px;
+    border: 2px solid grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Responsive view */
+/* 
+@media ( max-width : 810px){
+    .container-img {
+        display: none;
+    }
+
+    .container-form {
+       width: 100%;
+       height: 75%;
+       background-color: #fff;
+       display: flex;
+       flex-direction: column;
+    }
+    .head {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: blue;
+         
+    }
+    .body {
+        background-color: red;
+        width: 800px;
+        
+        
+    }
+
+    .head span {
+        font-size: 2.5rem;
+        margin-left: 30px;
+    }
+
+      
+} */
+
+@media screen and ( max-width : 750px){
+
+    .container {
+        flex-direction: column;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+    }
+
+    .container-img {
+        display: none;
+    }
+
+    .container-form {
+
+        background-color: red;
+        height: 100%;
+        padding: 50%;
+    }
+
+    .head span {
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .head p {
+        margin-left: 70px;
+    }
+}
+
+
+
