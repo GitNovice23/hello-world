@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="tsl.css">
+<body>
+    <h2>TODO-LIST APP</h2>
+    <div class="container">
+        <div class="inputs">
+            <input type="text" class="input1" placeholder="Add A Task">
+            <input type="button" value="Add" class="add-btn">
+        </div>
+        
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Complete</th>
+                        <th>Activities</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="output">
+                    <!-- <tr>
+                        <td><input type="checkbox" name="" id=""></td>
+                        <td class = "ntask" contenteditable="false">Go to the gym</td>
+                        <td><button class="edit">Edit</button> <button class="delete">Delete</button></td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        const addBtn = document.querySelector(".add-btn");
+        const output = document.querySelector(".output");
+        let task = [];
+
+        addBtn.addEventListener("click", function (){
+
+            const input1 = document.querySelector(".input1");
+            let query = input1.value;
+            if(query.trim() === "") {
+                alert("Please Enter a Task");
+                return;
+            }
+
+            task.push(query.trim());
+            input1.value = "";
+            makeList();
+        })
+        // function to append new task to the table body
+        function makeList(){
+            output.innerHTML = "";
+            for(let i = 0; i < task.length; i++){
+                
+                output.innerHTML += `<tr>
+                    <td><input type="checkbox" name="" class="check"></td>
+                    <td class="ntask" contenteditable="false">${task[i]}</td>
+                    <td><button class="edit" onclick = "edit(this)">Edit</button> <button onclick = "deleted(this)" class="delete">Delete</button></td>
+                </tr>`
+            }
+        }
+
+        // function to edit a task
+        function edit(elm){
+            // getting the parent of the button's parent
+            let elm1 = elm.parentNode.parentNode.children[1];
+            // getting the row index of the current row and adjusting it to match the array index
+            let id = elm.parentNode.parentNode.rowIndex - 1;
+            
+            let oldtext = elm1.textContent;
+            
+            if(elm.innerText === "Edit"){
+                elm.innerText = "Save";
+                elm1.setAttribute('contenteditable', 'true');
+                elm1.focus();
+            }else {
+                elm.innerText = "Edit";
+                elm1.setAttribute('contenteditable', 'false');
+                let newtext = elm1.textContent;
+                if(oldtext === newtext){
+                    return;
+                }
+                task[id] = newtext;
+            }
+           
+        }
+
+
+        // function to delete a task
+        function deleted(elm){
+            let elm1 = elm.parentNode.parentNode;
+            let id = elm1.rowIndex - 1;
+            // removing task from the array
+            task.splice(id, 1);
+            // removing task from the table
+            output.removeChild(elm1);
+        }
+
+
+    </script>
+</body>
+</html>

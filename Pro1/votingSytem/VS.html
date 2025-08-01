@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(48, 43, 53);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            font-family: 'Courier New', Courier, monospace;
+            color: white;
+        }
+
+        .container {
+    
+            height: 400px;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            background: rgba(255, 255, 255, 0.1 );
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            margin: 50px 0 0 0 ;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 2rem;
+        }
+
+        .body {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+
+        }
+
+        input[type="text"] {
+            width: 200px;
+            height: 30px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            border-bottom:  2px  solid white;
+            cursor: pointer;
+        }
+
+        .addNew {
+            width: 80px;
+            height: 30px;
+            text-align: center;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            color: black;
+        }
+
+        .click {
+            cursor: pointer;
+        }
+
+        
+
+        thead tr {
+            gap: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Simple Voting System</div>
+        <div class="body">
+            <input type="text" placeholder="Add a Friend" class="addfriend">
+            <input type="button" value="add Friend" class="addNew">
+        </div>
+        <table class="output">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Number of can</th>
+                    <th>NOV</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>    
+        
+    </div>
+    <script>
+        let myfreinds = ["Laurence", "Dikol", "Ivana", "Junior"];
+
+        const addN = document.querySelector(".addNew");
+        const TB = document.querySelector(".output tbody");
+        const input = document.querySelector(".addfriend");
+        let num = 0;
+
+        myfreinds.forEach((name, index) => {
+            // we are trying to append a whole table row with values inside it to the body section of a table
+            TB.innerHTML += `<tr><td>${index +1}</td><td>${name}</td><td  class = "click" onclick = "upgrade(this)">${num}</td>`
+        })
+
+        function createList() {
+           
+            if(input.value != ""){  
+                myfreinds.push(input.value);        
+                TB.innerHTML += `<tr><td>${ myfreinds.length}</td><td>${input.value}</td><td class = "click" onclick = "upgrade(this)" >${num}</td>`;
+                input.value = "";
+            }else {
+                alert("Empty field!!")
+            }
+        }
+
+        addN.addEventListener("click", createList);
+        
+        function upgrade(elm) {
+            let num = parseInt(elm.innerText);
+            num += 1;
+            elm.innerText = num;
+        }
+
+    </script>
+</body>    
+</html>

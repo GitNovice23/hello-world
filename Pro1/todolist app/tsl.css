@@ -1,0 +1,108 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    font-style: normal;
+}
+
+body {
+    background: linear-gradient(135deg, #f06, #4a90e2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+.container {
+    width: 45%;
+    height: 200vh;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    margin: 40px 0 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content:  flex-start;
+    align-items: center;
+}
+
+.inputs {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: space-between;
+    margin: 30px 0 0 0;
+}
+
+input[type="text"]{
+    width: 600px;
+    height: 40px;
+    padding: 0 0 2px 4px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: white;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+input[type="button"]{
+    width: 70px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(82, 236, 82);
+    font-size: 1.75rem;
+    border: none;
+    outline: none;
+}
+
+.table {
+    margin: 40px 0 0 0;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    
+}
+
+table{
+    border-collapse: collapse;
+    width: 700px;
+       
+}
+
+th {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+td {
+    font-size: 1.25rem;
+}
+
+.edit {
+    background-color: rgb(86, 86, 235);
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.delete {
+    background-color: rgb(247, 63, 63);
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 2px solid rgb(159, 165, 159);
+    text-align: left;
+}
