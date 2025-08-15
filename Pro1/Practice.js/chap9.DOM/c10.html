@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1 onclick="reveal(this)">Let's find the treasure </h1>
+        <div id="forest">
+            <div id="tree1">
+                <div id="squirrel"></div>
+                <div id="flower"></div>
+            </div>
+            <div id="tree2">
+                <div id="shrubbery">
+                    <div id="treasure"></div>
+                </div>
+                <div id="mushroom">
+                    <div id="bug"></div>
+                </div>
+            </div>
+        </div>
+        <span class="child"></span>
+        <button onclick="message(this)" id="btn">click me</button>
+        <script>
+            function reveal(el){
+                console.log(el.parentElement);
+                console.log(el.value);
+
+                var inme = el;
+                console.log(inme);
+                el.innerText = "i found the treasure";
+                el.style.color = "red";
+            }
+            function message(elm) {
+                console.dir(elm);
+                const add = document.body.children;
+                console.log(add);
+                for (i = add.length; i < add.length; i++){
+                    add[i].append().innerHTML = "<button>Submit</button>"
+
+                }
+                console.log(add[5])
+
+    
+            }
+
+        </script>
+    </body>
+</html>

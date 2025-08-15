@@ -1,0 +1,552 @@
+﻿The function `isNaN` is used in JavaScript to determine whether a value is `NaN` ("Not-a-Number"). It returns `true` if the value is `NaN`, and `false` otherwise. 
+
+### Key Points:
+1. **Purpose**: To check if a value is `NaN`.
+2. **Usage**: It is useful when you need to validate that a value is indeed a number and not something that cannot be converted to a number.
+
+### Example Usage:
+
+```javascript name=isnan-example.js
+console.log(isNaN(123));          // false, because 123 is a number
+console.log(isNaN('123'));        // false, because '123' can be converted to a number
+console.log(isNaN('Hello'));      // true, because 'Hello' cannot be converted to a number
+console.log(isNaN(undefined));    // true, because undefined cannot be converted to a number
+console.log(isNaN(NaN));          // true, because the value is NaN
+console.log(isNaN(null));         // false, because null is treated as 0
+```
+
+### Note:
+- `isNaN` is often used to validate user input to ensure it is a number before performing calculations.
+- In some cases, `Number.isNaN` is preferred over the global `isNaN` because it doesn't coerce the argument to a number, which makes it more reliable for checking `NaN` values.
+
+### Example with `Number.isNaN`:
+
+```javascript name=number-isnan-example.js
+console.log(Number.isNaN(123));          // false
+console.log(Number.isNaN('123'));        // false
+console.log(Number.isNaN('Hello'));      // false
+console.log(Number.isNaN(undefined));    // false
+console.log(Number.isNaN(NaN));          // true
+console.log(Number.isNaN(null));         // false
+```
+
+`Number.isNaN` is more strict and only returns `true` if the value is exactly `NaN`.
+
+
+You are correct that `parseInt` will attempt to convert the input string to a number. However, if the user enters a non-numeric string, `parseInt` will return `NaN` (Not-a-Number). The `isNaN` function is used to check if the result of `parseInt` is `NaN`, which indicates that the input was not a valid number.
+
+Here's a more detailed explanation:
+
+### Behavior of `parseInt`:
+- If the input string contains non-numeric characters, `parseInt` will parse up to the first non-numeric character and return the parsed number. For example, `parseInt("123abc")` will return `123`.
+- If the input string does not contain any numeric characters, `parseInt` will return `NaN`. For example, `parseInt("abc")` will return `NaN`.
+
+### Example:
+```javascript
+var input = "abc";
+var number = parseInt(input);
+
+console.log(number); // NaN
+```
+
+In this example, `parseInt` returns `NaN` because the input string does not contain any numeric characters. The `isNaN` function is then used to check if the result is `NaN`.
+
+### Updated Example with Explanation:
+Here's the updated code with comments to explain the use of `isNaN`:
+
+```javascript name=rock-paper-scissors.js
+var ary = ["Paper", "Scissors", "Rock"];
+var Unum = parseInt(prompt("Enter a number from 0 to 2:")); // Convert input to number
+var rand = Math.floor(Math.random() * 3);
+
+if (Unum > 2 || Unum < 0 || isNaN(Unum)) { // Check if input is out of range or not a number
+    console.log("Sorry, but the number you entered is not in the required range");
+} else {
+    switch (true) {
+        case Unum === 0 && rand === 1:
+            console.log(`${ary[1]} beats ${ary[0]}, the winner is the computer`);
+            break;
+        case Unum === 0 && rand === 2:
+            console.log(`${ary[0]} beats ${ary[2]}, The Winner is the User, congratulations`);
+            break;
+        case Unum === 1 && rand === 0:
+            console.log(`${ary[1]} beats ${ary[0]}, The Winner is the User, congratulations`);
+            break;
+        case Unum === 1 && rand === 2:
+            console.log(`${ary[2]} beats ${ary[1]}, The Winner is the Computer`);
+            break;
+        case Unum === 2 && rand === 0:
+            console.log(`${ary[0]} beats ${ary[2]}, The Winner is the Computer`);
+            break;
+        case Unum === 2 && rand === 1:
+            console.log(`${ary[2]} beats ${ary[1]}, The Winner is the User, congratulations`);
+            break;
+        default:
+            console.log("There is equality, hence a draw between User and Computer");
+    }
+}
+```
+
+### Summary:
+- `parseInt` converts the input string to a number.
+- If the input is not a valid number, `parseInt` returns `NaN`.
+- `isNaN` is used to check if the result is `NaN`, indicating an invalid input.
+- This ensures that the program handles invalid inputs gracefully and provides an appropriate error message.
+
+
+
+
+
+
+Description of the app :
+Sure! Let's walk through the execution of the JavaScript code step-by-step when the user enters four tasks, updates the second and fourth tasks, and then deletes the third task.
+
+### Initial State
+- The `task` array is empty.
+- Local storage is empty.
+
+### Step-by-Step Execution
+
+#### 1. User Enters Four Tasks
+
+1. **First Task ("Task 1")**
+    - User enters "Task 1" and clicks the "Add" button.
+    - The input value is retrieved and cleared.
+    - A new task object is created with a unique `id` (e.g., `id: 1613751112345`) and `text: "Task 1"`.
+    - The task object is added to the `task` array.
+    - The `task` array is saved to local storage.
+    - The `maketodo` function is called to render the task list.
+    - The task list now contains:
+      ```json
+      [
+          { "id": 1613751112345, "text": "Task 1" }
+      ]
+      ```
+
+2. **Second Task ("Task 2")**
+    - User enters "Task 2" and clicks the "Add" button.
+    - The input value is retrieved and cleared.
+    - A new task object is created with a unique `id` (e.g., `id: 1613751123456`) and `text: "Task 2"`.
+    - The task object is added to the `task` array.
+    - The `task` array is saved to local storage.
+    - The `maketodo` function is called to render the task list.
+    - The task list now contains:
+      ```json
+      [
+          { "id": 1613751112345, "text": "Task 1" },
+          { "id": 1613751123456, "text": "Task 2" }
+      ]
+      ```
+
+3. **Third Task ("Task 3")**
+    - User enters "Task 3" and clicks the "Add" button.
+    - The input value is retrieved and cleared.
+    - A new task object is created with a unique `id` (e.g., `id: 1613751134567`) and `text: "Task 3"`.
+    - The task object is added to the `task` array.
+    - The `task` array is saved to local storage.
+    - The `maketodo` function is called to render the task list.
+    - The task list now contains:
+      ```json
+      [
+          { "id": 1613751112345, "text": "Task 1" },
+          { "id": 1613751123456, "text": "Task 2" },
+          { "id": 1613751134567, "text": "Task 3" }
+      ]
+      ```
+
+4. **Fourth Task ("Task 4")**
+    - User enters "Task 4" and clicks the "Add" button.
+    - The input value is retrieved and cleared.
+    - A new task object is created with a unique `id` (e.g., `id: 1613751145678`) and `text: "Task 4"`.
+    - The task object is added to the `task` array.
+    - The `task` array is saved to local storage.
+    - The `maketodo` function is called to render the task list.
+    - The task list now contains:
+      ```json
+      [
+          { "id": 1613751112345, "text": "Task 1" },
+          { "id": 1613751123456, "text": "Task 2" },
+          { "id": 1613751134567, "text": "Task 3" },
+          { "id": 1613751145678, "text": "Task 4" }
+      ]
+      ```
+
+#### 2. User Updates the Second Task ("Task 2" -> "Updated Task 2")
+1. User clicks the "Edit" button next to the second task ("Task 2").
+   - The task text becomes editable, and the "Edit" button changes to "Save".
+2. User updates the text to "Updated Task 2" and clicks the "Save" button.
+   - The task text is no longer editable, and the "Save" button changes back to "Edit".
+   - The `task` array is updated with the new text for the second task.
+   - The `task` array is saved to local storage.
+   - The task list now contains:
+     ```json
+     [
+         { "id": 1613751112345, "text": "Task 1" },
+         { "id": 1613751123456, "text": "Updated Task 2" },
+         { "id": 1613751134567, "text": "Task 3" },
+         { "id": 1613751145678, "text": "Task 4" }
+     ]
+     ```
+
+#### 3. User Updates the Fourth Task ("Task 4" -> "Updated Task 4")
+1. User clicks the "Edit" button next to the fourth task ("Task 4").
+   - The task text becomes editable, and the "Edit" button changes to "Save".
+2. User updates the text to "Updated Task 4" and clicks the "Save" button.
+   - The task text is no longer editable, and the "Save" button changes back to "Edit".
+   - The `task` array is updated with the new text for the fourth task.
+   - The `task` array is saved to local storage.
+   - The task list now contains:
+     ```json
+     [
+         { "id": 1613751112345, "text": "Task 1" },
+         { "id": 1613751123456, "text": "Updated Task 2" },
+         { "id": 1613751134567, "text": "Task 3" },
+         { "id": 1613751145678, "text": "Updated Task 4" }
+     ]
+     ```
+
+#### 4. User Deletes the Third Task ("Task 3")
+1. User clicks the "Delete" button next to the third task ("Task 3").
+   - The third task is removed from the `task` array.
+   - The `task` array is saved to local storage.
+   - The task list now contains:
+     ```json
+     [
+         { "id": 1613751112345, "text": "Task 1" },
+         { "id": 1613751123456, "text": "Updated Task 2" },
+         { "id": 1613751145678, "text": "Updated Task 4" }
+     ]
+     ```
+
+### Summary
+- **Adding Tasks**: The tasks are added to the `task` array, saved to local storage, and rendered in the DOM.
+- **Updating Tasks**: The task text is edited, updated in the `task` array, saved to local storage, and the DOM is updated.
+- **Deleting Tasks**: The task is removed from the `task` array, saved to local storage, and removed from the DOM.
+
+### Final Task List
+After all the operations, the final task list in local storage and the rendered DOM will be:
+```json
+[
+    { "id": 1613751112345, "text": "Task 1" },
+    { "id": 1613751123456, "text": "Updated Task 2" },
+    { "id": 1613751145678, "text": "Updated Task 4" }
+]
+```
+
+### Detailed Execution Steps with the Code
+
+#### 1. User Enters Four Tasks
+
+1. **First Task ("Task 1")**
+    - **Input:** User enters "Task 1".
+    - **Action:** `btn` click event triggers.
+    - **Code Execution:**
+      ```javascript
+      btn.addEventListener("click", function() {
+          let query = inputs.value; // query = "Task 1"
+          inputs.value = ""; // Clear input
+          
+          if (query.trim() === "") {
+              alert("No value entered");
+              throw new Error("Empty input field error"); 
+          }
+
+          let taskobj = {
+              id: Date.now(), // e.g., id: 1613751112345
+              text: query // text: "Task 1"
+          };
+          task.push(taskobj); // Add task to array
+          localStorage.setItem("task array", JSON.stringify(task)); // Save to local storage
+          maketodo(); // Render tasks
+      });
+      ```
+    - **Result:** Task list contains one task.
+
+2. **Second Task ("Task 2")**
+    - **Input:** User enters "Task 2".
+    - **Action:** `btn` click event triggers.
+    - **Code Execution:**
+      ```javascript
+      btn.addEventListener("click", function() {
+          let query = inputs.value; // query = "Task 2"
+          inputs.value = ""; // Clear input
+          
+          if (query.trim() === "") {
+              alert("No value entered");
+              throw new Error("Empty input field error"); 
+          }
+
+          let taskobj = {
+              id: Date.now(), // e.g., id: 1613751123456
+              text: query // text: "Task 2"
+          };
+          task.push(taskobj); // Add task to array
+          localStorage.setItem("task array", JSON.stringify(task)); // Save to local storage
+          maketodo(); // Render tasks
+      });
+      ```
+    - **Result:** Task list contains two tasks.
+
+3. **Third Task ("Task 3")**
+    - **Input:** User enters "Task 3".
+    - **Action:** `btn` click event triggers.
+    - **Code Execution:**
+      ```javascript
+      btn.addEventListener("click", function() {
+          let query = inputs.value; // query = "Task 3"
+          inputs.value = ""; // Clear input
+          
+          if (query.trim() === "") {
+              alert("No value entered");
+              throw new Error("Empty input field error"); 
+          }
+
+          let taskobj = {
+              id: Date.now(), // e.g., id: 1613751134567
+              text: query // text: "Task 3"
+          };
+          task.push(taskobj); // Add task to array
+          localStorage.setItem("task array", JSON.stringify(task)); // Save to local storage
+          maketodo(); // Render tasks
+      });
+      ```
+    - **Result:** Task list contains three tasks.
+
+4. **Fourth Task ("Task 4")**
+    - **Input:** User enters "Task 4".
+    - **Action:** `btn` click event triggers.
+    - **Code Execution:**
+      ```javascript
+      btn.addEventListener("click", function() {
+          let query = inputs.value; // query = "Task 4"
+          inputs.value = ""; // Clear input
+          
+          if (query.trim() === "") {
+              alert("No value entered");
+              throw new Error("Empty input field error"); 
+          }
+
+          let taskobj = {
+              id: Date.now(), // e.g., id: 1613751145678
+              text: query // text: "Task 4"
+          };
+          task.push(taskobj); // Add task to array
+          localStorage.setItem("task array", JSON.stringify(task)); // Save to local storage
+          maketodo(); // Render tasks
+      });
+      ```
+    - **Result:** Task list contains four tasks.
+
+#### 2. User Updates the Second Task ("Task 2" -> "Updated Task 2")
+
+1. **Second Task Update**
+    - **Input:** User clicks "Edit" next to "Task 2" and changes it to "Updated Task 2".
+    - **Action:** `Edit-btn` click event triggers.
+    - **Code Execution:**
+      ```javascript
+      editbtn.addEventListener("click", function() {
+          if (editbtn.innerText === 'Edit') {
+              newtext.setAttribute('contenteditable', 'true'); // Enable editing
+              newtext.focus(); // Focus on the text to start editing
+              editbtn.innerText = "Save"; // Change button text to save
+          } else {
+              newtext.setAttribute('contenteditable', 'false'); // Disable editing
+              let updatedText = newtext.innerText.trim();
+              if (updatedText !== "") {
+                  task = task.map(function(taskobj) {
+                      if (taskobj.id === id) {
+                          taskobj.text = updatedText;
+                      }
+                      return taskobj;
+                  });
+                  localStorage.setItem("task array", JSON.stringify(task)); // Save to local storage
+              }
+              editbtn.innerText = 'Edit'; // Change button text back to Edit
+          }
+      });
+      ```
+    - **Result:** Task list contains:
+      ```json
+      [
+          { "id": 1613751112345, "text": "Task 1" },
+          { "id": 1613751123456, "text": "Updated Task 2" },
+          { "id": 1613751134567, "text": "Task 3" },
+          { "id": 1613751145678, "text": "Task 4" }
+      ]
+      ```
+
+#### 3. User Updates the Fourth Task ("Task 4" -> "Updated Task 4")
+
+1. **Fourth Task Update**
+    - **Input:** User clicks "Edit" next to "Task 4" and changes it to "Updated Task 4".
+    - **Action:** `Edit-btn` click event triggers.
+    - **Code Execution:**
+      ```javascript
+      editbtn.addEventListener("click", function() {
+          if (editbtn.innerText === 'Edit') {
+              newtext.setAttribute('contenteditable', 'true'); // Enable editing
+              newtext.focus(); // Focus on the text to start editing
+              editbtn.innerText = "Save"; // Change button text to save
+          } else {
+              newtext.setAttribute('contenteditable', 'false'); // Disable editing
+              let updatedText = newtext.innerText.trim();
+              if (updatedText !== "") {
+                  task = task.map(function(taskobj) {
+                      if (taskobj.id === id) {
+                          taskobj.text = updatedText;
+                      }
+                      return taskobj;
+                  });
+                  localStorage.setItem("task array", JSON.stringify(task)); // Save to local storage
+              }
+              editbtn.innerText = 'Edit'; // Change button text back to Edit
+          }
+      });
+      ```
+    - **Result:** Task list contains:
+      ```json
+      [
+          { "id": 1613751112345, "text": "Task 1" },
+          { "id": 1613751123456, "text": "Updated Task 2" },
+          { "id": 1613751134567, "text": "Task 3" },
+          { "id": 1613751145678, "text": "Updated Task 4" }
+      ]
+      ```
+
+#### 4. User Deletes the Third Task ("Task 3")
+
+1. **Third Task Deletion**
+    - **Input:** User clicks "Delete" next to "Task 3".
+    - **Action:** `delete-btn` click event triggers.
+    - **Code Execution:**
+      ```javascript
+      delbtn.addEventListener("click", function() {
+          let fearray = task.filter(function(taskobj) {
+              return taskobj.id != id;
+          });
+          task = fearray;
+          localStorage.setItem("task array", JSON.stringify(task)); // Save to local storage
+          body.removeChild(element); // Remove element from DOM
+      });
+      ```
+    - **Result:** Task list contains:
+      ```json
+      [
+          { "id": 1613751112345, "text": "Task 1" },
+          { "id": 1613751123456, "text": "Updated Task 2" },
+          { "id": 1613751145678, "text": "Updated Task 4" }
+      ]
+      ```
+
+After these steps, the final task list in local storage and the rendered DOM will be:
+```json
+[
+    { "id": 1613751112345, "text": "Task 1" },
+    { "id": 1613751123456, "text": "Updated Task 2" },
+    { "id": 1613751145678, "text": "Updated Task 4" }
+]
+```
+
+
+
+
+Methods used on arrays  
+push() : add elements at the end of the array and returns the new sizes of the array
+
+pop() :DELete elements at the end of the array.
+
+shift() : deletete elements at the begining
+
+unshift() : add elements at the begining of the array
+
+find() : use to find an element in an array and takes an arrow function as parameter eg
+array.find(e => e === element_to_find)
+
+findindex()
+
+indexof() : looks for the index of a given element and returns the  index of the first  occurance of that item   if it exists but returns -1 if not found 
+
+search() : do the same thing as indexOf(), but the only difference is that it receives regex expressions, but is slower than indexOf()
+
+splice() : 
+
+
+
+
+slice(): use to extract or get a copy of a subsection of the original array or string
+
+
+foreach() : mainly use to perform an action on each elememt, thereby may lead to modification of elements or not. expert a callback function as paramter
+
+map() : mainly us to create a new array of elements by transforming the original one. also expects a callback
+
+filter() : use retrieve elements from the original array base on specfic conditions. also uses callback
+
+reduce() : to get a specific results from an array eg like total, avg, product  etc eg prices = [10,20,30]; total = prices.reduce((sum,price) => sum + price, 0);
+
+delete keyword
+
+copywithin() : it is use to copy value from a position in an array to another position of that same array
+
+includes() : use to verify if a value exists in AN array or not, it returns true if it exist and false if not. it is case sensitive.
+
+every() : use to verify if all elements in the array  follow a specific condition, if yes, it returns true else false
+
+join() : use to convert an array to a string. it takes the character that will be innserted between one item and the other of the array
+
+Methods on Object:
+
+object.values() : use to return an array that contain the values of the object
+
+0bject.key() :  use to return an array that contain the keys of the object
+
+Object.entries(name_of_oblect). it return a 2D array where the nested arrays represent the key value pairs i.e each nested array contains the key and value of each entry of the object.
+
+### A string method
+
+concat() : use to combine two strings. also used on arrays.
+
+split() : use to convert a string to an array base on a specific string separator which need to be pass as argument to this function
+
+note that indexOf, lastIndexOf and search() also function on strings since it can be considered as an array of characters
+
+replace() : use to replace a section of a string with another. it takes two argument eg replace(old_string,new_string). note 9that it will replace just the first occurance of the old_string with the new_string, to replace all occurances use replaceAll(). it rerurned the new string hence doesn't change the original string
+
+toUpperCase() and toLowerCase()
+
+
+### FOR LOOPS for Objects
+
+### *the for of loop are  used on arrays*
+actually they are built to work only on objects of index properties( eg arrays), 
+the benefit here is that they is no possibility for infinite looping, but a limitation is that we can't modify the content of the array 
+syntax : 
+for( const val of Array ){
+    //block of code that will be executed on each value of the array Array
+}
+note that the varaible val in the for of parentheses will contain a copy of each value of the array 
+
+for in loop on Objects
+this one is  used on objects especially those of key properties. 
+syntax :
+for(var prop in Object_name){
+    //block of code that will be executed on each value or property
+}
+note that the varaible prop will contain the copy of the key of the object.
+
+we can indirectly use the for of loop  indirectly on an object thanks to the object methods Object.values(), object.keys(), and object.entries()
+
+ass : read on functions, spread and rest parameters
+implicit and explicit flunction
+
+## number methods 
+
+isNaN : checks if a value is not a number. check above for more e.g isNaN(value)
+
+isFinite(): check if a value is a finite number. returns true if it is and false for NaN, infinity and undefined
+
+isInteger() : checks if a number is an integer. can't be use without the Number object since it wasn't made global
+
+toFixed(): use to return  the rounding up format of a decimal number e.g x.toFixed(number of decimal place)
+
+toPrecision() : use to return a specific number of digits of any number

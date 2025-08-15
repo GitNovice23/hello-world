@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="message"></div>
+    <div id="output"></div>
+    <button onclick="build()">Click me</button>
+    <script>
+        const aryFriend = ["Laurence","Mike","John","Larry","Kim","Joanne","Lisa","Janet","Jane"];
+        const msg = document.getElementById("message");
+
+        function build() {
+            
+            let html = "<h1>My Friends Table</h1><table>";
+            aryFriend.forEach((item, index) => {
+                html += `<tr class="box" data-row="${index + 1}" data-name="${item}" onclick = "getData(this)"><td>${item}</td>`;
+                html += `<td>${index +1}</td></tr>`;
+            });
+
+            html += "</table>";
+
+            document.getElementById("output").innerhtml = html;
+            console.log(aryFriend);
+        }
+
+    
+
+        function getData(el) {
+            let temp = el.getAttribute("data-row");
+            let tempName = el.getAttribute("data-name");
+            message.innerHTML = `${tempName} is in row #${temp}`;
+        }
+        
+
+    </script>
+</body>
+</html>

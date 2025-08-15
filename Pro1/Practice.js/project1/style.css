@@ -1,0 +1,126 @@
+*{
+    box-sizing: border-box;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(221, 234, 248);
+}
+
+.mgs{
+    color: red;
+    font-size: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10%;
+}
+
+.child2 {
+    display: none;
+    margin: 20px;
+    width: 100vh;
+    padding: 100px;
+    border: none;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3), 0 7px 21px 0 rgba(0, 0, 0, 0.20);
+}
+
+.top{
+    border-radius: 10px;
+    margin: 20px;
+    padding: 100px;
+    border: none;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3), 0 7px 21px 0 rgba(0, 0, 0, 0.20);
+    width: 80vh;
+    padding-left: 100px;
+}
+
+input[type = text], input[type=password]{
+    outline: none;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #0076ff;
+    border-radius: 10px;
+    color: #0076ff;
+    font-size: 15px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 0px;
+    width: 70%;
+
+}
+
+#option{
+    outline: none;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #0076ff;
+    border-radius: 10px;
+    color: #0076ff;
+    width: 25%;
+    font-size: 15px;
+    height: 50px;
+
+}
+/* applying styles when focused */
+input:focus{
+    font-weight: 600;
+    border-bottom: 5px solid #0076ff;
+    transition: 0.1s;
+}
+
+/*changing place holder to black color*/
+input::placeholder{
+    color: black;
+}
+
+i{
+    min-width: 40px;
+    padding: 10px;
+    text-align: center;
+    background: lightgrey;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color: #0076ff;
+}
+
+.child1{
+    margin: 50px;
+    cursor: pointer;
+}
+
+div>button, .btn2 {
+    width: 120px;
+    height: 40px;
+    color: #0076ff;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 20px;
+    margin: 30px 70px;
+    font-size: 105%;
+    background-color: white;
+}
+
+.bt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn:hover{
+    background-color: #0076ff;
+    color: white;
+    font-size: large;
+}
+
+.btn {
+    transition: 0.5s;
+}
+
